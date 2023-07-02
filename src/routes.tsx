@@ -4,10 +4,12 @@ import Layout from "./components/Layout";
 import IndexPage from "./components/IndexPage";
 import SubTopicSelector from "./components/SubTopicSelector";
 import ChapterSelector from "./components/ChapterSelector";
+import ErrorPage from "./components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     element: <Layout />,
     children: [
       {

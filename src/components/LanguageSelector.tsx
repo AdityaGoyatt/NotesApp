@@ -2,6 +2,7 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 import { BsChevronDown } from "react-icons/bs";
 import { subjectQuery } from "../entities";
+import { Link } from "react-router-dom";
 
 interface Props {
   itemList: subjectQuery;
@@ -21,7 +22,9 @@ const LanguageSelector = ({ itemList }: Props) => {
         </MenuButton>
         <MenuList>
           {itemList.MajorTopics.map((topic) => (
-            <MenuItem key={topic.name}>{topic.name}</MenuItem>
+            <Link to={`/${topic.slug}`}>
+              <MenuItem key={topic.name}>{topic.name}</MenuItem>
+            </Link>
           ))}
         </MenuList>
       </Menu>
