@@ -6,3 +6,7 @@ interface Topic {
   name: string;
   slug: string;
 }
+export interface chaptersObject {
+  slug: string;
+  chapters: Array<Topic>;
+}

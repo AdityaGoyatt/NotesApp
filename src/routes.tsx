@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import IndexPage from "./components/IndexPage";
 import SubTopicSelector from "./components/SubTopicSelector";
+import ChapterSelector from "./components/ChapterSelector";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:slug",
-        element: <SubTopicSelector />,
+        element: <ChapterSelector />,
       },
     ],
   },
