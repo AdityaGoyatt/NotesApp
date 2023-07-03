@@ -10,14 +10,14 @@ export default [
   {
     name: "React",
     MajorTopics: [
-      { name: "Basic", slug: "react-basic" },
+      { name: "Basic", slug: "react-basics" },
       { name: "Intermediate", slug: "react-intermediate" },
     ],
   },
   {
     name: "JavaScript",
     MajorTopics: [
-      { name: "Basic", slug: "javascript-basic" },
+      { name: "Basic", slug: "javascript-basics" },
       { name: "Advanced Topics", slug: "javascript-advanced" },
     ],
   },

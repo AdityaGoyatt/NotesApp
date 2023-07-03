@@ -2,6 +2,7 @@ import { codeNotes } from "../entities";
 
 const allNotes: codeNotes[] = [
   {
+    name: "",
     slug: "",
     mainData: { code: "", description: "", output: "", comments: "" },
   },
