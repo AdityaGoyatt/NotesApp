@@ -15,6 +15,7 @@ const LanguageSelector = ({ itemList }: Props) => {
           margin="30px"
           w="25vh"
           size="lg"
+          paddingX={3}
           as={Button}
           rightIcon={<BsChevronDown />}
         >
@@ -23,7 +24,7 @@ const LanguageSelector = ({ itemList }: Props) => {
         <MenuList>
           {itemList.MajorTopics.map((topic) => (
             <Link to={`/${topic.slug}`}>
-              <MenuItem key={topic.name}>{topic.name}</MenuItem>
+              <MenuItem key={topic.slug}>{topic.name}</MenuItem>
             </Link>
           ))}
         </MenuList>
