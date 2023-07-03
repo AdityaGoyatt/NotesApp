@@ -9,6 +9,7 @@ export interface Topic {
 }
 export interface chaptersObject {
   slug: string;
+  underDevelopment?: boolean;
   chapters: Array<Topic>;
 }
 
@@ -20,6 +21,7 @@ export interface notesData {
 }
 
 export interface codeNotes {
-  slug: string;
+  name: string;
+  slug: "";
   mainData: notesData;
 }

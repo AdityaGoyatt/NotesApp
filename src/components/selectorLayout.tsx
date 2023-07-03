@@ -5,7 +5,7 @@ interface Props {
 }
 const SelectorLayout = ({ children }: Props) => {
   return (
-    <Flex h="50vh" justifyContent="center" alignItems="center" wrap="wrap">
+    <Flex justifyContent="center" alignItems="center" wrap="wrap" padding={70}>
       {children}
     </Flex>
   );

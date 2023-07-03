@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import useChapters from "../hooks/useChapters";
-import { Button } from "@chakra-ui/react";
+import { Box, Button, Center, Heading } from "@chakra-ui/react";
 import SelectorLayout from "./selectorLayout";
 
 const ChapterSelector = () => {
@@ -18,6 +18,14 @@ const ChapterSelector = () => {
           </Link>
         ))}
       </SelectorLayout>
+
+      {chapterData?.underDevelopment ? (
+        <Center>
+          <Heading fontSize="lg" fontFamily="caprasimo">
+            This Page is currently under development
+          </Heading>
+        </Center>
+      ) : null}
     </>
   );
 };
