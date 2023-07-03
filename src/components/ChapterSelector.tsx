@@ -4,16 +4,17 @@ import { Button } from "@chakra-ui/react";
 import SelectorLayout from "./selectorLayout";
 
 const ChapterSelector = () => {
-  const { slug: providedSlug } = useParams();
-  const data = useChapters();
-  const chapterData = data.find((chptr) => chptr.slug === providedSlug);
-  //   if (!chapterData) return <ErrorPage />;
+  const { slug: paramSlug } = useParams();
+  const chapterData = useChapters(paramSlug!);
+
   return (
     <>
       <SelectorLayout>
         {chapterData?.chapters.map((chapter) => (
           <Link to="/">
-            <Button colorScheme="facebook">{chapter.name}</Button>
+            <Button margin="30px" w="25vh" size="lg" colorScheme="facebook">
+              {chapter.name}
+            </Button>
           </Link>
         ))}
       </SelectorLayout>

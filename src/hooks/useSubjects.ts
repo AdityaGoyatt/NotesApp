@@ -1,5 +1,4 @@
 import { subjectQuery } from "../entities";
-import subjectsData from "./subjectsData";
 
 const subjects: subjectQuery[] = [
   {
@@ -7,7 +6,7 @@ const subjects: subjectQuery[] = [
     MajorTopics: [
       { name: "Basic", slug: "java-basic" },
       { name: "Object Oriented", slug: "java-object-oriented" },
-      { name: "", slug: "" },
+      { name: "Advanced", slug: "java-advanced" },
     ],
   },
   { name: "React", MajorTopics: [{ name: "", slug: "" }] },
