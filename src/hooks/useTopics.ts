@@ -1,6 +1,8 @@
-const topics = [{ slug: "", topicData: [{ topicName: "", TopicSlug: "" }] }];
+import topicsData from "../assets/storedData/topicsData";
+import { topicList } from "../entities";
 
+const topicDataBase: topicList[] = topicsData;
 const useTopics = (topicSlug: string) => {
-  return topics.find((topic) => topic.slug === topicSlug);
+  return topicDataBase.find((topic) => topic.slug === topicSlug);
 };
 export default useTopics;

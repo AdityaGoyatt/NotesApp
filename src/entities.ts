@@ -25,3 +25,8 @@ export interface codeNotes {
   slug: "";
   mainData: notesData;
 }
+
+export interface topicList {
+  slug: string;
+  topicsArray: Array<Topic>;
+}

@@ -25,7 +25,7 @@ export default [
     slug: "java-advanced",
     underDevelopment: true,
     chapters: [
-      { name: "Exceptions", slug: "java-expectations" },
+      { name: "Exceptions", slug: "java-exceptions" },
       { name: "Generics", slug: "java-generics" },
       { name: "Collections", slug: "java-collections" },
       { name: "Lamda Expressions", slug: "java-lamda-expressions" },

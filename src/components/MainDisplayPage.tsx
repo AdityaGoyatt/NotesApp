@@ -1,7 +1,15 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import TopicSelectorList from "./TopicSelectorList";
+import { useParams } from "react-router-dom";
+import useCodeFinder from "../hooks/useCodeFinder";
 
 const MainDisplayPage = () => {
+  const [chosenTopicSlug, setChosenTopicSlug] = useState("");
+  const { topicSlug: providedSlug } = useParams();
+  console.log(chosenTopicSlug);
+
+  console.log(useCodeFinder(chosenTopicSlug));
   return (
     <Grid
       templateAreas={{
@@ -13,7 +21,12 @@ const MainDisplayPage = () => {
         <GridItem area="button-selector"></GridItem>
       </Show>
       <Show above="lg">
-        <GridItem area="list-selector"></GridItem>
+        <GridItem area="list-selector">
+          <TopicSelectorList
+            handleClick={(chosenTopic) => setChosenTopicSlug(chosenTopic)}
+            topicSlug={providedSlug!}
+          />
+        </GridItem>
       </Show>
       <GridItem area="content"></GridItem>
     </Grid>
