@@ -1,5 +1,6 @@
 export interface subjectQuery {
   name: string;
+  underDevelopment?: boolean;
   MajorTopics: Array<Topic>;
 }
 export interface Topic {

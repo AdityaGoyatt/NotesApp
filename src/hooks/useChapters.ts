@@ -4,6 +4,7 @@ import { chaptersObject } from "../entities";
 const chaptersSample: chaptersObject[] = [
   {
     slug: "java-basic",
+
     chapters: [
       { name: "Types", slug: "java-types" },
       { name: "Control Flow", slug: "java-control-flow" },
