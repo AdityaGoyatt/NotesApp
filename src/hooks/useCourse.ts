@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "./apiClient";
 
 export interface Course {
-  id: number;
+  id?: number;
   course: string;
 }
 
@@ -15,11 +15,12 @@ class course {
     return list;
   }
 
-  public addCourse(courseObj: Course) {
-    // useEffect(() => {
-    //   //   apiClient.post("/list", courseObj).then((res) => console.log(res.data));
-    // }, []);
-    console.log(courseObj);
+  public addCourse(courseObj: string) {
+    const abc: Course = { course: courseObj };
+    apiClient
+      .post("/list", abc)
+      .then((res) => console.log(res.data))
+      .finally(() => console.log("closed"));
   }
 }
 

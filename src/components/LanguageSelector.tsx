@@ -23,7 +23,7 @@ const LanguageSelector = ({ itemList }: Props) => {
         </MenuButton>
         <MenuList>
           {itemList.MajorTopics.map((topic) => (
-            <Link to={`/${topic.slug}`}>
+            <Link to={`/${topic.slug}`} key={topic.slug + "vvv"}>
               <MenuItem key={topic.slug}>{topic.name}</MenuItem>
             </Link>
           ))}
