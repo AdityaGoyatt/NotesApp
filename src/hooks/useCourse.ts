@@ -3,7 +3,7 @@ import apiClient from "./apiClient";
 
 export interface Course {
   id?: number;
-  course: string;
+  name: string;
 }
 
 class course {
@@ -16,11 +16,10 @@ class course {
   }
 
   public addCourse(courseObj: string) {
-    const abc: Course = { course: courseObj };
-    apiClient
-      .post("/list", abc)
-      .then((res) => console.log(res.data))
-      .finally(() => console.log("closed"));
+    const abc: Course = { name: courseObj };
+    const [dbCourse, setDbCourse] = useState<Course>();
+    apiClient.post("/list", abc).then((res) => setDbCourse({ ...res.data }));
+    return dbCourse;
   }
 }
 

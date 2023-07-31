@@ -1,10 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import IndexPage from "./components/SubjectSelector";
-import ChapterSelector from "./components/ChapterSelector";
+import IndexPage from "./components/IndexPage";
 import ErrorPage from "./components/ErrorPage";
-import MainDisplayPage from "./components/MainDisplayPage";
 
 const router = createBrowserRouter([
   {
