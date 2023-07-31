@@ -16,11 +16,6 @@ const router = createBrowserRouter([
         index: true,
         element: <IndexPage />,
       },
-      {
-        path: "/:chapterSlug",
-        element: <ChapterSelector />,
-      },
-      { path: "/:chapterSlug/:topicSlug", element: <MainDisplayPage /> },
     ],
   },
 ]);
