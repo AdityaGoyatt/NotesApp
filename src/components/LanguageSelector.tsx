@@ -10,7 +10,7 @@ interface Props {
   course: Course;
 }
 const LanguageSelector = ({ course }: Props) => {
-  const subtopics = useSubTopics(course.id!);
+  const subtopics = useSubTopics.getTopics(course.id!);
 
   return (
     <>

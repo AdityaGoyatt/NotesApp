@@ -1,30 +1,59 @@
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
-import useCourse, { Course } from "../hooks/useCourse";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  HStack,
+  Box,
+} from "@chakra-ui/react";
+import { Course, CourseTopicPostObj } from "../hooks/useCourse";
 import { FormEvent, useRef, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import apiClient from "../hooks/apiClient";
+import { Subtopic } from "../hooks/useSubTopics";
 const AddCourse = () => {
-  const courseDriver = useCourse;
+  const addCourse = useMutation({
+    mutationFn: (course: CourseTopicPostObj) =>
+      apiClient
+        .post<CourseTopicPostObj>("/Course", course)
+        .then((res) => res.data),
+    onSuccess: (recievedObj) => console.log(recievedObj),
+  });
+
   const courseRef = useRef<HTMLInputElement>(null);
   const subTopicRef = useRef<HTMLInputElement>(null);
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (courseRef.current) {
-      console.log("sending");
-
-      const dbCourse = courseDriver.addCourse(courseRef.current.value);
+    if (courseRef.current && subTopicRef.current?.value) {
+      const course: Course = { name: courseRef.current.value };
+      const subtopic: Subtopic = { subtopicName: subTopicRef.current.value };
+      addCourse.mutate({ course: course, subTopics: subtopic });
     }
   }
 
   return (
     <>
       <form onSubmit={(event) => handleSubmit(event)}>
-        <FormControl mb={4}>
-          <FormLabel>Course</FormLabel>
-          <Input type="text" placeholder="Enter your course" ref={courseRef} />
-          <Input type="text" placeholder="Enter a subtopic" ref={subTopicRef} />
-        </FormControl>
-        <Button colorScheme="blue" type="submit">
-          Submit
-        </Button>
+        <Box m={4}>
+          <FormControl mb={4}>
+            <HStack>
+              <Input
+                type="text"
+                placeholder="Enter your course"
+                ref={courseRef}
+              />
+              <Input
+                type="text"
+                placeholder="Enter a subtopic"
+                ref={subTopicRef}
+              />
+              <Button colorScheme="blue" type="submit">
+                Submit
+              </Button>
+            </HStack>
+          </FormControl>
+        </Box>
       </form>
     </>
   );

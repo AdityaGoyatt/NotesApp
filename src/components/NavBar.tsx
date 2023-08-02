@@ -1,15 +1,5 @@
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  HStack,
-  Heading,
-  Image,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, HStack, Heading, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.png";
-import DarkModeButton from "./DarkModeButton";
 import AddButton from "./AddButton";
 
 const NavBar = () => (
@@ -20,10 +10,7 @@ const NavBar = () => (
         <Heading fontSize="2xl" fontFamily="Caprasimo">
           My Notes
         </Heading>
-        {/* <VStack> */}
         <AddButton directoryLevel={"Course"}></AddButton>
-        {/* <DarkModeButton /> */}
-        {/* </VStack> */}
       </HStack>
     </Box>
   </>

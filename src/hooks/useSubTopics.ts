@@ -7,20 +7,8 @@ import apiClient from "./apiClient";
 import { useEffect, useState } from "react";
 import { Course } from "./useCourse";
 
-const useSubTopics = (courseId: number) => {
-  const [list, setList] = useState<Subtopic[]>();
-  useEffect(() => {
-    apiClient
-      .get<Subtopic[]>("/subtopics/" + courseId)
-      .then((res) => setList([...res.data]));
-  });
-  return list;
-};
-
-export default useSubTopics;
-
-class useCubTopics {
-  public getTopics(courseId: number) {
+class useSubTopics {
+  getTopics(courseId: number) {
     const [list, setList] = useState<Subtopic[]>();
     useEffect(() => {
       apiClient
@@ -29,4 +17,12 @@ class useCubTopics {
     });
     return list;
   }
+
+  addSubtopic(subtopic: Subtopic) {
+    apiClient
+      .post<Subtopic>("/subtopics", subtopic)
+      .then((res) => console.log(res.data));
+  }
 }
+
+export default new useSubTopics();
