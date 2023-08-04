@@ -59,6 +59,3 @@ const AddToExistingSubtopic = () => {
 };
 
 export default AddToExistingSubtopic;
-function mutationFn(variables: CourseTopicPostObj): Promise<unknown> {
-  throw new Error("Function not implemented.");
-}

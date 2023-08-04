@@ -1,7 +1,7 @@
 import { Box, HStack, Heading, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.png";
 import AddButton from "./AddButton";
-import AddCourse from "./AddCourse";
+import AddCourse from "../Archieves/AddCourse";
 import { useState } from "react";
 
 const NavBar = () => {

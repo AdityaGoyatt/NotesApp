@@ -1,4 +1,4 @@
-import AddCourse from "./AddCourse";
+import AddCourse from "../Archieves/AddCourse";
 import Background from "./Background";
 import IndexPage from "./IndexPage";
 import galaxy from "../assets/mainbg.jpg";
