@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "./apiClient";
-import { Subtopic } from "./useSubTopics";
+import { Subtopic } from "./entities";
 import { TopDirectory } from "./useCourseSubtopics";
 export interface CourseTopicPostObj {
   course: Course;

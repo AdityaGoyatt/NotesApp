@@ -13,6 +13,7 @@ import { Course, CourseTopicPostObj, Subtopic } from "../hooks/entities";
 import { useMutation } from "@tanstack/react-query";
 import apiClient from "../hooks/apiClient";
 import useAddingState from "../HooksZustand/useAddState";
+import AddFormButton from "./AddFormButton";
 
 const AddDirectory = () => {
   const isHorizontal = useBreakpointValue({ base: false, lg: true });
@@ -82,14 +83,7 @@ const AddDirectory = () => {
                 ref={subTopicRef}
                 placeholder="enter subtopic"
               ></Input>
-              <Button
-                width="15vw"
-                bgGradient="linear-gradient(to right, #c33764, #1d2671)"
-                colorScheme="gray"
-                type="submit"
-              >
-                Add
-              </Button>
+              <AddFormButton />
             </Center>
           </FormControl>
         ) : (
@@ -122,15 +116,7 @@ const AddDirectory = () => {
               ref={subTopicRef}
               placeholder="enter subtopic"
             ></Input>
-            <Button
-              bgGradient="linear-gradient(to right, #c33764, #1d2671)"
-              type="submit"
-              m={2}
-              width="25vw"
-              colorScheme="gray"
-            >
-              Add
-            </Button>
+            <AddFormButton />
           </FormControl>
         )}
       </Box>

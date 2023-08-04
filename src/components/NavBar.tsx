@@ -13,7 +13,7 @@ const NavBar = () => {
           <Heading fontSize="2xl" fontFamily="Caprasimo">
             My Notes
           </Heading>
-          <AddButton directoryLevel={"Course"}></AddButton>
+          <AddButton></AddButton>
         </HStack>
       </Box>
     </>

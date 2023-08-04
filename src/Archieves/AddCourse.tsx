@@ -12,7 +12,7 @@ import { Course, CourseTopicPostObj } from "../hooks/entities";
 import { FormEvent, useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import apiClient from "../hooks/apiClient";
-import { Subtopic } from "../hooks/useSubTopics";
+import { Subtopic } from "../hooks/entities";
 import { useNavigate } from "react-router-dom";
 const AddCourse = () => {
   const navigate = useNavigate();

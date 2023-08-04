@@ -6,36 +6,56 @@ import {
   Button,
   ChakraProvider,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import useAddingState from "../HooksZustand/useAddState";
-interface Props {
-  directoryLevel: String;
-}
+import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
 
-const AddButton = ({ directoryLevel }: Props) => {
-  const { changeIsAdding, changeAddingState } = useAddingState();
+const AddButton = () => {
+  const { changeIsAdding, changeAddingState, isAdding } = useAddingState();
+  const { currentDirectory } = useCurrentDirectory();
   return (
     <Menu>
       <MenuButton as={Button} variant="outline">
         Add Notes
       </MenuButton>
       <MenuList>
-        <MenuItem
-          onClick={() => {
-            changeIsAdding(true);
-            changeAddingState("New");
-          }}
-        >
-          New {directoryLevel}
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            changeIsAdding(true);
-            changeAddingState("Existing");
-          }}
-        >
-          Existing {directoryLevel}
-        </MenuItem>
+        {!(currentDirectory === "Course") || (
+          <>
+            <MenuItem
+              onClick={() => {
+                changeIsAdding(true);
+                changeAddingState("New");
+              }}
+            >
+              New {currentDirectory}
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                changeIsAdding(true);
+                changeAddingState("Existing");
+              }}
+            >
+              Existing {currentDirectory}
+            </MenuItem>
+          </>
+        )}
+        {!(currentDirectory === "Section") || (
+          <MenuItem
+            onClick={() => {
+              changeIsAdding(true);
+            }}
+          >
+            New {currentDirectory}
+          </MenuItem>
+        )}
+        {!(currentDirectory === "Topic") || (
+          <MenuItem
+            onClick={() => {
+              changeIsAdding(true);
+            }}
+          >
+            New {currentDirectory}
+          </MenuItem>
+        )}
       </MenuList>
     </Menu>
   );

@@ -9,9 +9,9 @@ interface AddingStore {
 
 const useAddingState = create<AddingStore>((set) => ({
   addState: "New",
+  isAdding: false,
   newAddingState: () => set(() => ({ addState: "New" })),
   changeAddingState: (add) => set(() => ({ addState: add })),
-  isAdding: false,
   changeIsAdding: (State) => set((store) => ({ isAdding: State })),
 }));
 

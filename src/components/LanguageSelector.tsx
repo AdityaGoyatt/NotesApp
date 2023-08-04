@@ -4,11 +4,17 @@ import { BsChevronDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Course } from "../hooks/entities";
 import useCourseSubtopics from "../hooks/useCourseSubtopics";
+import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
+import { useEffect } from "react";
 
 interface Props {
   course: Course;
 }
 const LanguageSelector = ({ course }: Props) => {
+  const { setCurrentDirectory } = useCurrentDirectory();
+  useEffect(() => {
+    setCurrentDirectory("Course");
+  }, []);
   const subtopics = useCourseSubtopics
     .getAllSubTopics()
     ?.filter((subtopic) => subtopic.course?.id == course.id);

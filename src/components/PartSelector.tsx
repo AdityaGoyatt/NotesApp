@@ -2,13 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import { Box, Button, Center, Heading } from "@chakra-ui/react";
 import SelectorLayout from "./selectorLayout";
 import useParts from "../hooks/useParts";
-import ErrorPage from "./ErrorPage";
 
-const PartSelector = () => {
-  const { subtopicSlug: paramSlug } = useParams();
-
-  if (!paramSlug) return;
-  const partsList = useParts(paramSlug).data;
+interface Props {
+  subtopicSlug: string;
+}
+const PartSelector = ({ subtopicSlug }: Props) => {
+  const partsList = useParts(subtopicSlug).data;
 
   return (
     <>
@@ -16,7 +15,7 @@ const PartSelector = () => {
         {partsList?.map((part) => (
           <Link
             key={part.partSlug + "link"}
-            to={`/${paramSlug}/${part.partSlug}`}
+            to={`/${subtopicSlug}/${part.partSlug}`}
           >
             <Button
               key={part.partSlug}

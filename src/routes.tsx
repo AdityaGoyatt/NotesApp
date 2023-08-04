@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import IndexPage from "./components/IndexPage";
 import ErrorPage from "./components/ErrorPage";
 import PartSelector from "./components/PartSelector";
+import SubDirectory from "./components/SubDirectory";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:subtopicSlug",
-        element: <PartSelector />,
+        element: <SubDirectory />,
       },
     ],
   },

@@ -8,20 +8,22 @@ export interface TopDirectory {
   subDirectory: Array<Subtopic>;
 }
 
-const useQueryFunction = (endpoint: string) =>
-  useQuery<TopDirectory, Error>({
+const useQueryFunction = <T>(endpoint: string) =>
+  useQuery<T, Error>({
     queryKey: ["courses"],
-    queryFn: () =>
-      apiClient.get<TopDirectory>(endpoint).then((res) => res.data),
+    queryFn: () => apiClient.get<T>(endpoint).then((res) => res.data),
   });
 
 class useCoursesSubtopics {
   getAllCourses() {
-    return useQueryFunction("/courses").data?.baseDirectory;
+    return useQueryFunction<TopDirectory>("/courses").data?.baseDirectory;
   }
 
   getAllSubTopics() {
-    return useQueryFunction("/courses").data?.subDirectory;
+    return useQueryFunction<TopDirectory>("/courses").data?.subDirectory;
+  }
+  getSubTopicBySlug(subtopicSlug: string) {
+    return useQueryFunction<Subtopic>("/courses/" + subtopicSlug).data;
   }
 }
 export default new useCoursesSubtopics();

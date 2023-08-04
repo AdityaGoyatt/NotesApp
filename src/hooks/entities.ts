@@ -20,7 +20,7 @@ export interface CourseTopicPostObj {
 }
 
 export interface Part {
-  partSlug: string;
+  partSlug?: string;
   partName: string;
   subTopic: Subtopic;
 }
