@@ -1,11 +1,11 @@
 export interface Subtopic {
-  subtopicName: String;
-  subtopicId?: number;
+  subtopicName: string;
+  slug?: string;
   course?: Course;
 }
 import apiClient from "./apiClient";
 import { useEffect, useState } from "react";
-import { Course } from "./useCourse";
+import { Course } from "./entities";
 
 class useSubTopics {
   getTopics(courseId: number) {
@@ -19,9 +19,7 @@ class useSubTopics {
   }
 
   addSubtopic(subtopic: Subtopic) {
-    apiClient
-      .post<Subtopic>("/subtopics", subtopic)
-      .then((res) => console.log(res.data));
+    apiClient.post<Subtopic>("/subtopics", subtopic).then((res) => res.data);
   }
 }
 

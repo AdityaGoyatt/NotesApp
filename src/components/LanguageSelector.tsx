@@ -2,15 +2,16 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 import { BsChevronDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useTopics from "../hooks/useTopics";
-import useSubTopics from "../hooks/useSubTopics";
-import { Course } from "../hooks/useCourse";
+import { Course } from "../hooks/entities";
+import useCourseSubtopics from "../hooks/useCourseSubtopics";
 
 interface Props {
   course: Course;
 }
 const LanguageSelector = ({ course }: Props) => {
-  const subtopics = useSubTopics.getTopics(course.id!);
+  const subtopics = useCourseSubtopics
+    .getAllSubTopics()
+    ?.filter((subtopic) => subtopic.course?.id == course.id);
 
   return (
     <>
@@ -31,7 +32,7 @@ const LanguageSelector = ({ course }: Props) => {
               to={`/${topic.subtopicName}`}
               key={topic.subtopicName + "vvv"}
             >
-              <MenuItem key={topic.subtopicId}>{topic.subtopicName}</MenuItem>
+              <MenuItem key={topic.slug}>{topic.subtopicName}</MenuItem>
             </Link>
           ))}
         </MenuList>
