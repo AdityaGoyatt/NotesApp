@@ -1,5 +1,5 @@
 import { Course } from "./entities";
-import { Subtopic } from "./useSubTopics";
+import { Subtopic } from "./entities";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "./apiClient";
 

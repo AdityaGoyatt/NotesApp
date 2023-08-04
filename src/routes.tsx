@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import IndexPage from "./components/IndexPage";
 import ErrorPage from "./components/ErrorPage";
+import PartSelector from "./components/PartSelector";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <IndexPage />,
+      },
+      {
+        path: "/:subtopicSlug",
+        element: <PartSelector />,
       },
     ],
   },

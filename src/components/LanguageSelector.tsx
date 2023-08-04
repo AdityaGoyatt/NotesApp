@@ -12,7 +12,6 @@ const LanguageSelector = ({ course }: Props) => {
   const subtopics = useCourseSubtopics
     .getAllSubTopics()
     ?.filter((subtopic) => subtopic.course?.id == course.id);
-
   return (
     <>
       <Menu>
@@ -29,10 +28,10 @@ const LanguageSelector = ({ course }: Props) => {
         <MenuList>
           {subtopics?.map((topic) => (
             <Link
-              to={`/${topic.subtopicName}`}
+              to={`/${topic.subtopicSlug}`}
               key={topic.subtopicName + "vvv"}
             >
-              <MenuItem key={topic.slug}>{topic.subtopicName}</MenuItem>
+              <MenuItem key={topic.subtopicSlug}>{topic.subtopicName}</MenuItem>
             </Link>
           ))}
         </MenuList>

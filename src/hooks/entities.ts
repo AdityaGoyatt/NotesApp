@@ -18,3 +18,9 @@ export interface CourseTopicPostObj {
   course: Course;
   subTopics: Subtopic;
 }
+
+export interface Part {
+  partSlug: string;
+  partName: string;
+  subTopic: Subtopic;
+}
