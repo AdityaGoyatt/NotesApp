@@ -7,22 +7,33 @@ import {
   ChakraProvider,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import useAddingState from "../HooksZustand/useAddState";
 interface Props {
   directoryLevel: String;
 }
 
 const AddButton = ({ directoryLevel }: Props) => {
-  const navigate = useNavigate();
+  const { changeIsAdding, changeAddingState } = useAddingState();
   return (
     <Menu>
       <MenuButton as={Button} variant="outline">
         Add Notes
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={() => navigate("/CourseForm")}>
+        <MenuItem
+          onClick={() => {
+            changeIsAdding(true);
+            changeAddingState("New");
+          }}
+        >
           New {directoryLevel}
         </MenuItem>
-        <MenuItem onClick={() => navigate("/ExistingCourseForm")}>
+        <MenuItem
+          onClick={() => {
+            changeIsAdding(true);
+            changeAddingState("Existing");
+          }}
+        >
           Existing {directoryLevel}
         </MenuItem>
       </MenuList>
