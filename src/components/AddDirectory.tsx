@@ -10,13 +10,14 @@ import {
 import useCourseSubtopics from "../hooks/useCourseSubtopics";
 import { FormEvent, useRef } from "react";
 import { Course, CourseTopicPostObj, Subtopic } from "../hooks/entities";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import apiClient from "../hooks/apiClient";
 import useAddingState from "../HooksZustand/useAddState";
 import AddFormButton from "./AddFormButton";
 
 const AddDirectory = () => {
   const isHorizontal = useBreakpointValue({ base: false, lg: true });
+  const query = useQueryClient();
   const { addState, changeIsAdding } = useAddingState();
   const courses = useCourseSubtopics.getAllCourses();
   const addCourse = useMutation({
@@ -24,7 +25,9 @@ const AddDirectory = () => {
       apiClient
         .post<CourseTopicPostObj>("/courses", course)
         .then((res) => res.data),
-    onSuccess: (recievedObj) => console.log(recievedObj),
+    onSuccess: (recievedPart) => {
+      query.invalidateQueries({ queryKey: ["courses"] });
+    },
   });
 
   const courseSelectRef = useRef<HTMLSelectElement>(null);

@@ -8,7 +8,7 @@ import {
 import useAddingState from "../HooksZustand/useAddState";
 import { useParams } from "react-router-dom";
 import { FormEvent, useRef } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import apiClient from "../hooks/apiClient";
 import { Part } from "../hooks/entities";
 import AddFormButton from "./AddFormButton";
@@ -19,13 +19,17 @@ interface Props {
 }
 const AddSubDirectory = ({ subtopicSlug }: Props) => {
   const isHorizontal = useBreakpointValue({ base: false, lg: true });
-
+  const { changeIsAdding } = useAddingState();
+  const query = useQueryClient();
   const subTopic = useCourseSubtopics.getSubTopicBySlug(subtopicSlug);
   const partRef = useRef<HTMLInputElement>(null);
   const addSection = useMutation({
     mutationFn: (part: Part) =>
       apiClient.post<Part>("/part", part).then((res) => res.data),
-    onSuccess: (recievedPart) => console.log(recievedPart),
+    onSuccess: (recievedPart) => {
+      query.invalidateQueries({ queryKey: ["Parts"] });
+      changeIsAdding(false);
+    },
   });
 
   const handleSubmit = (event: FormEvent) => {

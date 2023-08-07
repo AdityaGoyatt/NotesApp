@@ -24,3 +24,19 @@ export interface Part {
   partName: string;
   subTopic: Subtopic;
 }
+
+export interface Topic {
+  topicSlug: string;
+  name: string;
+  syntaxImage: string;
+  syntaxComment: string;
+  resultImage: string;
+}
+
+export interface TopicDataSent {
+  topicSlug: string;
+  name: string;
+  syntaxImage: File;
+  syntaxComment: string;
+  resultImage: File;
+}
