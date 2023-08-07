@@ -1,34 +1,33 @@
-import { Button, VStack, List } from "@chakra-ui/react";
-
-import useTopics from "../hooks/useTopics";
+import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import useCurrentTopic from "../HooksZustand/useCurrentTopic";
+import useTopics from "../hooks/useTopics";
 
 interface Props {
   partSlug: string;
 }
-const TopicSelectorList = ({ partSlug }: Props) => {
+const ButtonSelector = ({ partSlug }: Props) => {
   const topics = useTopics.getTopics(partSlug);
   const { setCurrentTopic } = useCurrentTopic();
   const onClick = (topicSlug: string) => {
     setCurrentTopic(topicSlug);
   };
   return (
-    <List>
-      <VStack>
+    <Menu>
+      <MenuButton as={Button} variant="outline">
+        Topics...
+      </MenuButton>
+      <MenuList>
         {topics?.map((topic) => (
-          <Button
-            margin="5px"
-            w="25vh"
-            size="lg"
+          <MenuItem
             key={topic.topicSlug}
             onClick={() => onClick(topic.topicSlug)}
           >
             {topic.name}
-          </Button>
+          </MenuItem>
         ))}
-      </VStack>
-    </List>
+      </MenuList>
+    </Menu>
   );
 };
 
-export default TopicSelectorList;
+export default ButtonSelector;

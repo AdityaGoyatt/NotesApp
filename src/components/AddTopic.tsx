@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { FormEvent, useRef } from "react";
 import { TopicDataSent } from "../hooks/entities";
-const TopicForm = () => {
+const AddTopic = () => {
   const slug = "slug";
   const nameRef = useRef<HTMLInputElement>(null);
   const syntaxImageRef = useRef<HTMLInputElement>(null);
@@ -71,4 +71,4 @@ const TopicForm = () => {
     );
   };
 };
-export default TopicForm;
+export default AddTopic;
