@@ -5,6 +5,7 @@ import IndexPage from "./components/IndexPage";
 import ErrorPage from "./components/ErrorPage";
 import PartSelector from "./components/PartSelector";
 import SubDirectory from "./components/SubDirectory";
+import MainDisplayPage from "./components/MainDisplayPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/:subtopicSlug",
         element: <SubDirectory />,
+      },
+      {
+        path: "/subtopic/:partSlug",
+        element: <MainDisplayPage />,
       },
     ],
   },

@@ -13,10 +13,7 @@ const PartSelector = ({ subtopicSlug }: Props) => {
     <>
       <SelectorLayout>
         {partsList?.map((part) => (
-          <Link
-            key={part.partSlug + "link"}
-            to={`/${subtopicSlug}/${part.partSlug}`}
-          >
+          <Link key={part.partSlug + "link"} to={`/subtopic/${part.partSlug}`}>
             <Button
               key={part.partSlug}
               margin="30px"

@@ -31,6 +31,7 @@ export interface Topic {
   syntaxImage: string;
   syntaxComment: string;
   resultImage: string;
+  resultImageComment: string;
 }
 
 export interface TopicDataSent {
@@ -39,4 +40,5 @@ export interface TopicDataSent {
   syntaxImage: File;
   syntaxComment: string;
   resultImage: File;
+  resultImageComment: string;
 }
