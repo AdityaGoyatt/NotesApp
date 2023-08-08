@@ -6,7 +6,7 @@ const AddFormButton = () => {
       bgGradient="linear-gradient(to right, #c33764, #1d2671)"
       type="submit"
       m={2}
-      width="15vw"
+      minWidth="25vw"
       colorScheme="gray"
     >
       Add

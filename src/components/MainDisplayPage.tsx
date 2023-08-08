@@ -6,6 +6,7 @@ import ButtonSelector from "./ButtonSelector";
 import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
 import { useEffect } from "react";
 import useAddingState from "../HooksZustand/useAddState";
+import AddTopic from "./AddTopic";
 
 const MainDisplayPage = () => {
   const { setCurrentDirectory } = useCurrentDirectory();
@@ -19,6 +20,11 @@ const MainDisplayPage = () => {
 
   return (
     <>
+      {!isAdding || (
+        <>
+          <AddTopic topicSlug={providedSlug!} />
+        </>
+      )}
       <Grid
         templateAreas={{
           base: `"button-selector" "content"`,
