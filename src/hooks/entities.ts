@@ -31,14 +31,16 @@ export interface Topic {
   syntaxImage: string;
   syntaxComment: string;
   resultImage: string;
-  resultImageComment: string;
+  resultComment: string;
+  part: Part;
 }
 
 export interface TopicDataSent {
-  topicSlug: string;
+  topicSlug?: string;
   name: string;
   syntaxImage: File;
   syntaxComment: string;
   resultImage: File;
-  resultImageComment: string;
+  resultComment: string;
+  partSlug: string;
 }

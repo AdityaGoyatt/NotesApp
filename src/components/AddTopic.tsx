@@ -11,20 +11,41 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { FormEvent, useRef } from "react";
-import { TopicDataSent } from "../hooks/entities";
+import { Topic, TopicDataSent } from "../hooks/entities";
 import AddButton from "./AddButton";
 import AddFormButton from "./AddFormButton";
 import { maxWidth } from "../hooks/reusableValues";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import apiClient from "../hooks/apiClient";
+import useAddingState from "../HooksZustand/useAddState";
 interface Props {
   topicSlug: string;
 }
-const AddTopic = ({ topicSlug }: Props) => {
-  const slug = topicSlug;
+const AddTopic = ({ topicSlug: partSlug }: Props) => {
+  const slug = "abcd";
+
+  const query = useQueryClient();
+  const { changeIsAdding } = useAddingState();
   const nameRef = useRef<HTMLInputElement>(null);
   const syntaxImageRef = useRef<HTMLInputElement>(null);
   const syntaxCommentRef = useRef<HTMLTextAreaElement>(null);
   const resultImageRef = useRef<HTMLInputElement>(null);
   const resultCommentRef = useRef<HTMLTextAreaElement>(null);
+
+  const mutation = useMutation({
+    mutationFn: (topic: TopicDataSent) =>
+      apiClient
+        .post<TopicDataSent>("/topic", topic, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => res.data),
+    onSuccess: (recievedPart) => {
+      query.invalidateQueries({ queryKey: ["Topics"] });
+      changeIsAdding(false);
+    },
+  });
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -40,9 +61,12 @@ const AddTopic = ({ topicSlug }: Props) => {
         syntaxImage: syntaxImageRef.current.files[0],
         syntaxComment: syntaxCommentRef.current.value,
         resultImage: resultImageRef.current.files[0],
-        resultImageComment: resultCommentRef.current.value,
-        topicSlug: slug,
+        resultComment: resultCommentRef.current.value,
+        partSlug: slug,
       };
+      console.log(formData);
+
+      mutation.mutate(formData);
     }
   };
 
