@@ -5,14 +5,14 @@ import {
   Input,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import useAddingState from "../HooksZustand/useAddState";
+import useAddingState from "../../HooksZustand/useAddState";
 import { useParams } from "react-router-dom";
 import { FormEvent, useRef } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import apiClient from "../hooks/apiClient";
-import { Part } from "../hooks/entities";
-import AddFormButton from "./AddFormButton";
-import useCourseSubtopics from "../hooks/useCourseSubtopics";
+import apiClient from "../../hooks/apiClient";
+import { Part } from "../../hooks/entities";
+import AddFormButton from "../Buttons/AddFormButton";
+import useCourseSubtopics from "../../hooks/useCourseSubtopics";
 
 interface Props {
   subtopicSlug: string;

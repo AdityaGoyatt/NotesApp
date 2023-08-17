@@ -2,9 +2,9 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 import { BsChevronDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { Course } from "../hooks/entities";
-import useCourseSubtopics from "../hooks/useCourseSubtopics";
-import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
+import { Course } from "../../hooks/entities";
+import useCourseSubtopics from "../../hooks/useCourseSubtopics";
+import useCurrentDirectory from "../../HooksZustand/useCurrentDirectory";
 import { useEffect } from "react";
 
 interface Props {

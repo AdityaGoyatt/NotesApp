@@ -1,13 +1,13 @@
 import { Center, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import TopicSelectorList from "./TopicSelectorList";
 import { useParams } from "react-router-dom";
-import useTopics from "../hooks/useListTopics";
 import ButtonSelector from "./ButtonSelector";
-import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
+import useCurrentDirectory from "../../HooksZustand/useCurrentDirectory";
 import { useEffect } from "react";
-import useAddingState from "../HooksZustand/useAddState";
+import useAddingState from "../../HooksZustand/useAddState";
 import AddTopic from "./AddTopic";
-import DarkModeButton from "./DarkModeButton";
+import DarkModeButton from "../Buttons/DarkModeButton";
+import useTopics from "../../hooks/useTopics";
 
 const MainDisplayPage = () => {
   const { setCurrentDirectory } = useCurrentDirectory();
@@ -17,7 +17,7 @@ const MainDisplayPage = () => {
   const { isAdding } = useAddingState();
   const { partSlug: providedSlug } = useParams();
   console.log(providedSlug);
-  console.log(useTopics.getTopics(providedSlug!));
+  console.log(useTopics);
 
   return (
     <>

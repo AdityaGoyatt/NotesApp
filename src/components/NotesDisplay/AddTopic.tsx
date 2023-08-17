@@ -9,12 +9,12 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { FormEvent, useRef } from "react";
-import { TopicDataSent } from "../hooks/entities";
-import AddFormButton from "./AddFormButton";
-import { maxWidth } from "../hooks/reusableValues";
+import { TopicDataSent } from "../../hooks/entities";
+import AddFormButton from "../Buttons/AddFormButton";
+import { maxWidth } from "../../hooks/reusableValues";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import apiClient from "../hooks/apiClient";
-import useAddingState from "../HooksZustand/useAddState";
+import apiClient from "../../hooks/apiClient";
+import useAddingState from "../../HooksZustand/useAddState";
 interface Props {
   topicSlug: string;
 }

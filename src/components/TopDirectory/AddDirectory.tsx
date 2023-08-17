@@ -7,13 +7,13 @@ import {
   Select,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import useCourseSubtopics from "../hooks/useCourseSubtopics";
+import useCourseSubtopics from "../../hooks/useCourseSubtopics";
 import { FormEvent, useRef } from "react";
-import { Course, CourseTopicPostObj, Subtopic } from "../hooks/entities";
+import { Course, CourseTopicPostObj, Subtopic } from "../../hooks/entities";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import apiClient from "../hooks/apiClient";
-import useAddingState from "../HooksZustand/useAddState";
-import AddFormButton from "./AddFormButton";
+import apiClient from "../../hooks/apiClient";
+import useAddingState from "../../HooksZustand/useAddState";
+import AddFormButton from "../Buttons/AddFormButton";
 
 const AddDirectory = () => {
   const isHorizontal = useBreakpointValue({ base: false, lg: true });

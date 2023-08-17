@@ -6,8 +6,8 @@ import {
   Button,
   ChakraProvider,
 } from "@chakra-ui/react";
-import useAddingState from "../HooksZustand/useAddState";
-import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
+import useAddingState from "../../HooksZustand/useAddState";
+import useCurrentDirectory from "../../HooksZustand/useCurrentDirectory";
 
 const AddButton = () => {
   const { changeIsAdding, changeAddingState, isAdding } = useAddingState();

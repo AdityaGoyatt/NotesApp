@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Box, Button, Center, Heading } from "@chakra-ui/react";
-import SelectorLayout from "./selectorLayout";
-import useParts from "../hooks/useParts";
+import SelectorLayout from "../TopDirectory/selectorLayout";
+import useParts from "../../hooks/useParts";
 
 interface Props {
   subtopicSlug: string;

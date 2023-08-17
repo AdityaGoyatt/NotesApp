@@ -1,7 +1,7 @@
 import { Button, VStack, List } from "@chakra-ui/react";
 
-import useTopics from "../hooks/useTopics";
-import useCurrentTopic from "../HooksZustand/useCurrentTopic";
+import useTopics from "../../hooks/useTopics";
+import useCurrentTopic from "../../HooksZustand/useCurrentTopic";
 
 interface Props {
   partSlug: string;
@@ -9,9 +9,7 @@ interface Props {
 const TopicSelectorList = ({ partSlug }: Props) => {
   const topics = useTopics.getTopics(partSlug);
   const { setCurrentTopic } = useCurrentTopic();
-  const onClick = (topicSlug: string) => {
-    setCurrentTopic(topicSlug);
-  };
+  const onClick = (topicSlug: string) => {};
   return (
     <List>
       <VStack>

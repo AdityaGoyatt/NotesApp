@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import useAddingState from "../HooksZustand/useAddState";
-import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
+import useAddingState from "../../HooksZustand/useAddState";
+import useCurrentDirectory from "../../HooksZustand/useCurrentDirectory";
 import AddSubDirectory from "./AddSubDirectory";
 import PartSelector from "./PartSelector";
 import { useEffect } from "react";
