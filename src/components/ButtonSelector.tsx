@@ -1,6 +1,6 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import useCurrentTopic from "../HooksZustand/useCurrentTopic";
-import useTopics from "../hooks/useTopics";
+import useTopics from "../hooks/useListTopics";
 
 interface Props {
   partSlug: string;
@@ -13,7 +13,7 @@ const ButtonSelector = ({ partSlug }: Props) => {
   };
   return (
     <Menu>
-      <MenuButton as={Button} variant="outline">
+      <MenuButton m={5} as={Button} variant="outline">
         Topics...
       </MenuButton>
       <MenuList>

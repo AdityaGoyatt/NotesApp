@@ -1,12 +1,13 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Center, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import TopicSelectorList from "./TopicSelectorList";
 import { useParams } from "react-router-dom";
-import useTopics from "../hooks/useTopics";
+import useTopics from "../hooks/useListTopics";
 import ButtonSelector from "./ButtonSelector";
 import useCurrentDirectory from "../HooksZustand/useCurrentDirectory";
 import { useEffect } from "react";
 import useAddingState from "../HooksZustand/useAddState";
 import AddTopic from "./AddTopic";
+import DarkModeButton from "./DarkModeButton";
 
 const MainDisplayPage = () => {
   const { setCurrentDirectory } = useCurrentDirectory();
@@ -33,11 +34,14 @@ const MainDisplayPage = () => {
       >
         <Show below="sm">
           <GridItem area="button-selector">
-            <ButtonSelector partSlug={providedSlug!}></ButtonSelector>
+            <HStack justifyContent="space-between" marginX={3} paddingY={2}>
+              <ButtonSelector partSlug={providedSlug!}></ButtonSelector>
+              <DarkModeButton />
+            </HStack>
           </GridItem>
         </Show>
         <Show above="sm">
-          <GridItem area="list-selector">
+          <GridItem area="list-selector" m={5}>
             <TopicSelectorList partSlug={providedSlug!} />
           </GridItem>
         </Show>
