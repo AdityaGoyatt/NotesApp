@@ -3,21 +3,24 @@ import TopicSelectorList from "./TopicSelectorList";
 import { useParams } from "react-router-dom";
 import ButtonSelector from "./ButtonSelector";
 import useCurrentDirectory from "../../HooksZustand/useCurrentDirectory";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useAddingState from "../../HooksZustand/useAddState";
 import AddTopic from "./AddTopic";
 import DarkModeButton from "../Buttons/DarkModeButton";
 import useTopics from "../../hooks/useTopics";
+import useCurrentTopic from "../../HooksZustand/useCurrentTopic";
+import DataPage from "./DataPage";
+import useTopicById from "../../hooks/useTopicById";
 
 const MainDisplayPage = () => {
   const { setCurrentDirectory } = useCurrentDirectory();
+  const { currentTopicSlug, setCurrentTopicSlug } = useCurrentTopic();
   useEffect(() => {
     setCurrentDirectory("Topic");
   }, []);
+
   const { isAdding } = useAddingState();
   const { partSlug: providedSlug } = useParams();
-  console.log(providedSlug);
-  console.log(useTopics);
 
   return (
     <>
@@ -40,6 +43,13 @@ const MainDisplayPage = () => {
             </HStack>
           </GridItem>
         </Show>
+        {currentTopicSlug ? (
+          <GridItem>
+            <DataPage />
+          </GridItem>
+        ) : (
+          <></>
+        )}
         <Show above="sm">
           <GridItem area="list-selector" m={5}>
             <TopicSelectorList partSlug={providedSlug!} />

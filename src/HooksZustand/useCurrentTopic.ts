@@ -1,13 +1,12 @@
 import { create } from "zustand";
-import { Topic } from "../hooks/entities";
 interface TopicStore {
-  currentTopic: Topic | undefined;
-  setCurrentTopic: (topic: Topic | undefined) => void;
+  currentTopicSlug: string | undefined;
+  setCurrentTopicSlug: (topic: string | undefined) => void;
 }
 
 const useCurrentTopic = create<TopicStore>((set) => ({
-  currentTopic: undefined,
-  setCurrentTopic: (topic) => set(() => ({ currentTopic: topic })),
+  currentTopicSlug: undefined,
+  setCurrentTopicSlug: (topic) => set(() => ({ currentTopicSlug: topic })),
 }));
 
 export default useCurrentTopic;

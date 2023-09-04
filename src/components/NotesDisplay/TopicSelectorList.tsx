@@ -8,8 +8,11 @@ interface Props {
 }
 const TopicSelectorList = ({ partSlug }: Props) => {
   const topics = useTopics.getTopics(partSlug);
-  const { setCurrentTopic } = useCurrentTopic();
-  const onClick = (topicSlug: string) => {};
+  const { setCurrentTopicSlug } = useCurrentTopic();
+  const onClick = (topicSlug: string) => {
+    setCurrentTopicSlug(topicSlug);
+  };
+
   return (
     <List>
       <VStack>
