@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useCurrentTopic from "../../HooksZustand/useCurrentTopic";
 import DataCard from "./DataCard";
-import { useQuery } from "@chakra-ui/react";
+import { Divider, useQuery } from "@chakra-ui/react";
 import { useQueryClient } from "@tanstack/react-query";
 import apiClient from "../../hooks/apiClient";
 import { Topic } from "../../hooks/entities";
@@ -22,6 +22,12 @@ const DataPage = () => {
         title={"Syntax"}
         comments={topic?.syntaxComment!}
         imageUrl={topic?.syntaxImage!}
+      ></DataCard>
+      <Divider />
+      <DataCard
+        title={"results"}
+        comments={topic?.resultComment!}
+        imageUrl={topic?.resultImage!}
       ></DataCard>
     </>
   );

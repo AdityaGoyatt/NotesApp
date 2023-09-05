@@ -10,7 +10,8 @@ import DarkModeButton from "../Buttons/DarkModeButton";
 import useTopics from "../../hooks/useTopics";
 import useCurrentTopic from "../../HooksZustand/useCurrentTopic";
 import DataPage from "./DataPage";
-import useTopicById from "../../hooks/useTopicById";
+import blankImage from "../../assets/colorblast.png";
+import DataCard from "./DataCard";
 
 const MainDisplayPage = () => {
   const { setCurrentDirectory } = useCurrentDirectory();
@@ -31,11 +32,13 @@ const MainDisplayPage = () => {
       )}
       <Grid
         templateAreas={{
-          base: `"button-selector" "content"`,
-          lg: `"list-selector content" `,
+          base: `"button-selector button-selector"
+         "content content"`,
+
+          lg: `"list-selector content"`,
         }}
       >
-        <Show below="sm">
+        <Show below="lg">
           <GridItem area="button-selector">
             <HStack justifyContent="space-between" marginX={3} paddingY={2}>
               <ButtonSelector partSlug={providedSlug!}></ButtonSelector>
@@ -44,14 +47,22 @@ const MainDisplayPage = () => {
           </GridItem>
         </Show>
         {currentTopicSlug ? (
-          <GridItem>
+          <GridItem area="content">
             <DataPage />
           </GridItem>
         ) : (
-          <></>
+          <>
+            <GridItem area="content">
+              <DataCard
+                title="Please Select a topic"
+                comments=""
+                imageUrl={blankImage}
+              ></DataCard>
+            </GridItem>
+          </>
         )}
-        <Show above="sm">
-          <GridItem area="list-selector" m={5}>
+        <Show above="lg">
+          <GridItem area="list-selector">
             <TopicSelectorList partSlug={providedSlug!} />
           </GridItem>
         </Show>

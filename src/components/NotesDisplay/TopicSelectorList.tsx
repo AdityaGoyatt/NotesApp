@@ -14,7 +14,7 @@ const TopicSelectorList = ({ partSlug }: Props) => {
   };
 
   return (
-    <List>
+    <List padding="7px">
       <VStack>
         {topics?.map((topic) => (
           <Button
